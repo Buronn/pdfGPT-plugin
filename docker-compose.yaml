@@ -1,0 +1,18 @@
+version: "3"
+services:
+  askpdf:
+    build: ./backend
+    ports:
+      - "3334:3333"
+    volumes:
+      - ./backend:/app
+    restart: always
+    env_file:
+      - .env
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Ask PDF",
+    "name_for_model": "ask_pdf",
+    "description_for_human": "Plugin for ask questions to PDF, and get answers from PDF.",
+    "description_for_model": "A plugin that allows users to load and query PDF using ChatGPT. Users must first provide a PDF URL for processing. Once the PDF is loaded, users can query, analyze, or ask questions from that PDF name without needing to specify everytime. User must provide a PDF link that can be publically accessible, only documents can be loaded. The query will be able to extract relevant parts of the document to the users request. The load may take a while to process and if it does not work on the first try, try again, unless you get an error message back. User can only load documents that can be publically accessible on the internet.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "http://localhost:3334/.well-known/openapi.yaml",
+        "is_user_authenticated": false
+    },
+    "logo_url": "http://localhost:3334/logo.png",
+    "contact_email": "support@example.com",
+    "legal_info_url": "http://www.example.com/legal"
+}

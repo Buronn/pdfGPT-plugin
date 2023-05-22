@@ -1,0 +1,98 @@
+openapi: 3.0.1
+info:
+  title: Ask to PDF
+  description: A plugin that allows users to load and query PDF using ChatGPT. Users must first provide a PDF URL for processing. Once the PDF is loaded, users can query, analyze, or ask questions from that PDF name without needing to specify everytime. User must provide a PDF link that can be publically accessible, only documents can be loaded. The query will be able to extract relevant parts of the document to the users request. The load may take a while to process and if it does not work on the first try, try again, unless you get an error message back. User can only load documents that can be publically accessible on the internet.
+  version: 'v1'
+servers:
+  - url: http://localhost:3334
+paths:
+  /pdf/load:
+    post:
+      operationId: loadPdf
+      summary: Load a PDF document
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/loadPdfRequest"
+      responses:
+        "200":
+          description: OK
+  /pdf/query:
+    post:
+      operationId: queryPdf
+      summary: Query a loaded PDF document
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/queryPdfRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/queryPdfResponse"
+
+components:
+  schemas:
+    loadPdfRequest:
+      type: object
+      required:
+        - pdf_url
+      properties:
+        pdf_url:
+          type: string
+          format: uri
+          description: The temporary URL of the PDF document to load.
+          required: true
+    queryPdfRequest:
+      type: object
+      required:
+        - query
+        - pdf_url
+      properties:
+        query:
+          type: string
+          description: The query or question to ask based on the PDF document.
+          required: true
+        pdf_url:
+          type: string
+          format: uri
+          description: The temporary URL of the PDF document that is already loaded.
+          required: true
+    queryPdfResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: string
+          description: The list of text chunks from the PDF document that are relevant to the user's query.
+  /documentation/{service}:
+    get:
+      operationId: getDocumentation
+      summary: Get the PDF URLs of a Huawei Cloud service documentation
+      parameters:
+      - in: path
+        name: service
+        schema:
+            type: string
+        required: true
+        description: The name of the Huawei Cloud service.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  urls:
+                    type: array
+                    items:
+                      type: string
+                    description: The list of PDF URLs.
