@@ -4,7 +4,7 @@ This repository contains a plugin for ChatGPT based on the [pdfGPT](https://gith
 
 ## What does it do?
 
-The pdfGPT Plugin allows you to chat with an uploaded PDF file using GPT functionalities. The application intelligently breaks the document into smaller chunks and employs a powerful Deep Averaging Network Encoder to generate embeddings. A semantic search is first performed on your PDF content and the most relevant embeddings are returned. A custom logic generates precise responses. The returned response can even cite the page number in square brackets([]) where the information is located, adding credibility to the responses and helping to locate pertinent information quickly. The responses are much better than the naive responses by OpenAI.
+The pdfGPT Plugin allows you to chat with an uploaded PDF file using GPT functionalities. The application intelligently breaks the document into smaller chunks and employs a powerful Deep Averaging Network Encoder to generate embeddings. A semantic search is first performed on your PDF content and the most relevant embeddings are returned. A custom logic generates precise responses. The responses are much better than the naive responses by OpenAI.
 
 ## PDF Input
 
