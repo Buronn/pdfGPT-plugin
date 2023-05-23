@@ -6,10 +6,6 @@ This repository contains a plugin for ChatGPT based on the [pdfGPT](https://gith
 
 The pdfGPT Plugin allows you to chat with an uploaded PDF file using GPT functionalities. The application intelligently breaks the document into smaller chunks and employs a powerful Deep Averaging Network Encoder to generate embeddings. A semantic search is first performed on your PDF content and the most relevant embeddings are passed to the OpenAI. A custom logic generates precise responses. The returned response can even cite the page number in square brackets([]) where the information is located, adding credibility to the responses and helping to locate pertinent information quickly. The responses are much better than the naive responses by OpenAI.
 
-## Setup
-
-To set up the pdfGPT Plugin, you need to configure a `.env` file with your `OPENAI_API_KEY`. This is necessary for the plugin to interact with the OpenAI API and generate responses based on the content of your PDF files.
-
 ## PDF Input
 
 The plugin requires a PDF link that is accessible by the host. This link will be used to retrieve the PDF file for processing.
