@@ -43,7 +43,7 @@ def pdf_to_text(path, start_page=1, end_page=None):
     return text_list
 
 
-def text_to_chunks(texts, word_length=150, start_page=1):
+def text_to_chunks(texts, word_length=128, start_page=1):
     text_toks = [t.split(' ') for t in texts]
     page_nums = []
     chunks = []
@@ -112,7 +112,7 @@ def generate_text(openAI_key, prompt, engine="text-davinci-003"):
     completions = openai.Completion.create(
         engine=engine,
         prompt=prompt,
-        max_tokens=2048,
+        max_tokens=1536,
         n=1,
         stop=None,
         temperature=0.7,
@@ -134,7 +134,7 @@ def generate_answer(question, openAI_key):
         "Citation should be done at the end of each sentence. If the search results mention multiple subjects "
         "with the same name, create separate answers for each. Only include information found in the results and "
         "don't add any additional information. Make sure the answer is correct and don't output false content. "
-        "If the text does not relate to the query, simply state 'Not Found, search in another PDF'. Ignore outlier "
+        "If the text does not relate to the query, simply state 'Text Not Found in PDF'. Ignore outlier "
         "search results which has nothing to do with the question. Only answer what is asked. The "
         "answer should be short and concise. Answer step-by-step. \n\nQuery: {question}\nAnswer: "
     )

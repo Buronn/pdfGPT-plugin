@@ -1,9 +1,4 @@
-import shutil
-from pathlib import Path
-from tempfile import NamedTemporaryFile
-
 from flask import request, Blueprint, send_from_directory, jsonify
-from werkzeug.datastructures import FileStorage
 
 import functions.pdf as pdf
 
