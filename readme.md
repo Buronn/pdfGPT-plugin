@@ -22,7 +22,7 @@ You can easily run the pdfGPT Plugin using Docker. Simply use the following comm
 docker-compose up -d
 ```
 
-This will start the plugin in detached mode, allowing it to run in the background. Upon initialization, the plugin will open port 3332.
+This will start the plugin in detached mode, allowing it to run in the background. Upon initialization, the plugin will open port 3334.
 
 ## Acknowledgements
 
