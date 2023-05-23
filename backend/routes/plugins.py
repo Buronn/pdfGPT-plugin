@@ -28,8 +28,7 @@ def query_pdf():
             return jsonify({"error": "Question or URL not specified"}), 400
         pdf.download_pdf(url, 'corpus.pdf')
         pdf.load_recommender('corpus.pdf')
-        openAI_key = pdf.load_openai_key()
-        answer = pdf.generate_answer(question, openAI_key)
+        answer = pdf.generate_answer(question)
         return jsonify({"results": [answer]}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500

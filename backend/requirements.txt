@@ -1,7 +1,6 @@
 Flask
 flask-restful
 numpy
-openai
 Pillow
 PyMuPDF
 scikit-learn

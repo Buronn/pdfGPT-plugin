@@ -6,8 +6,6 @@ import tensorflow as tf
 
 import logging
 
-logging.info("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
-
 if tf.test.gpu_device_name():
     logging.info('Default GPU Device: {}'.format(tf.test.gpu_device_name()))
 else:
